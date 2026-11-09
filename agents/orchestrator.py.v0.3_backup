@@ -1,0 +1,16 @@
+from agents.niche_agent import NicheAgent
+
+
+class Orchestrator:
+
+    def __init__(self):
+        self.niche_agent = NicheAgent()
+
+    def create_venture_report(self, idea):
+
+        print("\nGenesis AI CEO Agent")
+        print("Analyzing your idea...")
+
+        niche_report = self.niche_agent.analyze(idea)
+
+        return niche_report
