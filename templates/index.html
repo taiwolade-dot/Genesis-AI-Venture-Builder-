@@ -1,42 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Genesis AI Venture Builder</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            margin: 0;
+            color: #1a2a6c;
+        }
+
+        header {
+            background: #1a2a6c;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background: #d4af37;
+            color: #1a2a6c;
+            border: none;
+            padding: 14px 25px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        h2 {
+            color: #1a2a6c;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+<header>
+
 <h1>Genesis AI Venture Builder</h1>
 
-<h3>AI CEO Venture Analysis</h3>
+<p>AI Venture Studio — Transform Ideas into Opportunities</p>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>🚀 Create Venture Analysis</h2>
 
 <form method="POST">
 
-<textarea 
+<textarea
 name="idea"
 rows="5"
-cols="50"
-placeholder="Enter your venture idea">
-</textarea>
+placeholder="Enter your business or ministry idea..."></textarea>
 
-<br><br>
 
 <button type="submit">
-Analyze Venture
+Generate Venture Strategy
 </button>
 
+
 </form>
+
+</div>
+
 
 
 {% if report %}
 
-<h2>Venture Report</h2>
+<div class="card">
 
-<pre>
-{{ report }}
-</pre>
+<h2>🤖 Genesis AI CEO Analysis</h2>
+
+<pre>{{ report }}</pre>
+
+</div>
+
 
 {% endif %}
 
+
+
+</div>
+
+
 </body>
+
 </html>
