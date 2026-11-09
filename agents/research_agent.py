@@ -1,38 +1,41 @@
-from rich import print
+from agents.base_agent import BaseAgent
 
 
-class ResearchAgent:
+class ResearchAgent(BaseAgent):
+    """
+    Research Intelligence Agent.
+    Discovers market opportunities, problems, and possible solutions.
+    """
+
+    def __init__(self):
+        super().__init__(
+            name="Research Intelligence Agent",
+            mission="Analyze markets, identify problems, opportunities, and research directions."
+        )
 
     def analyze(self, niche):
 
-        report = f"""
-GENESIS AI RESEARCH REPORT
-
-Research Topic:
-{niche}
-
-Sources To Investigate:
-- Academic research papers
-- Industry reports
-- Books
-- Professional articles
-- Online communities
-- Market trends
-
-Research Questions:
-
-1. What problem does this niche solve?
-
-2. Who needs this solution?
-
-3. What solutions already exist?
-
-4. What opportunity gaps exist?
-
-5. What digital products can be created?
-
-Research Status:
-Ready for source collection.
-"""
+        report = {
+            "agent": self.name,
+            "mission": self.mission,
+            "research_topic": niche,
+            "sources_to_investigate": [
+                "Academic research papers",
+                "Industry reports",
+                "Books",
+                "Professional articles",
+                "Online communities",
+                "Market trends"
+            ],
+            "research_questions": [
+                "What problem does this niche solve?",
+                "Who needs this solution?",
+                "What solutions already exist?",
+                "What opportunity gaps exist?",
+                "What digital products can be created?"
+            ],
+            "research_status": "Ready for source collection.",
+            "confidence_score": 0.0
+        }
 
         return report
