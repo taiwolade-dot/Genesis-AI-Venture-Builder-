@@ -12,8 +12,19 @@ def home():
     report = None
 
     if request.method == "POST":
+
         idea = request.form["idea"]
-        report = ceo.create_venture_report(idea)
+
+        result = ceo.create_venture_report(idea)
+
+        report = {
+            "idea": result["idea"],
+            "agent": result["agent"],
+            "mission": result["mission"],
+            "niche": result["niche_analysis"],
+            "research": result["research_analysis"],
+            "next_stage": result["next_stage"]
+        }
 
     return render_template(
         "index.html",
