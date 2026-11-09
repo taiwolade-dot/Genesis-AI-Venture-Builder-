@@ -131,6 +131,8 @@ Generate Venture Strategy
 
 </form>
 
+<div id="result"></div>
+
 </div>
 
 
@@ -315,13 +317,60 @@ Generate Venture Strategy
 
 <script>
 
-function showLoading(){
+document.getElementById("ventureForm").addEventListener("submit", async function(e){
 
-document.getElementById("generateBtn").disabled = true;
+e.preventDefault();
+
+const idea = document.getElementById("idea").value;
+
+const button = document.getElementById("generateBtn");
+
+button.disabled = true;
 
 document.getElementById("loading").style.display = "block";
 
-}
+
+const response = await fetch("/analyze", {
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+idea:idea
+})
+
+});
+
+
+const data = await response.json();
+
+
+document.getElementById("loading").innerHTML =
+
+"<div class='card'>" +
+
+"<h3>✅ AI Workflow Completed</h3>" +
+
+"<p>🤖 CEO Agent: Completed</p>" +
+
+"<p>🔍 Niche Agent: Completed</p>" +
+
+"<p>📚 Research Agent: Completed</p>" +
+
+"</div>";
+
+
+button.disabled = false;
+
+
+console.log(data);
+
+
+});
+
 
 </script>
 
