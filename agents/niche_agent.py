@@ -1,46 +1,47 @@
 from rich import print
+from agents.base_agent import BaseAgent
 
 
-class NicheAgent:
+class NicheAgent(BaseAgent):
+    """
+    Market Niche Discovery Agent.
+    Identifies promising business opportunities and target audiences.
+    """
+
+    def __init__(self):
+        super().__init__(
+            name="Niche Discovery Agent",
+            mission="Identify profitable niches, target audiences, and digital product opportunities."
+        )
 
     def analyze(self, idea):
 
-        report = f"""
-GENESIS AI MARKET REPORT
-
-Idea:
-{idea}
-
-Recommended Niche:
-AI-Powered Ministry Leadership Training
-
-Problem Identified:
-Many church leaders want to use artificial intelligence but need practical, ethical, and ministry-focused guidance.
-
-Target Audience:
-- Pastors
-- Church administrators
-- Seminary students
-- Christian educators
-
-Possible Digital Products:
-1. Ebook
-2. Online Course
-3. Workshop
-4. AI Ministry Prompt Library
-
-Demand Score:
-90/100
-
-Competition:
-Moderate
-
-Opportunity:
-HIGH
-
-Recommendation:
-Proceed to research stage.
-"""
+        report = {
+            "agent": self.name,
+            "mission": self.mission,
+            "idea": idea,
+            "recommended_niche": "AI-Powered Ministry Leadership Training",
+            "problem_identified": (
+                "Many church leaders want to use artificial intelligence "
+                "but need practical, ethical, and ministry-focused guidance."
+            ),
+            "target_audience": [
+                "Pastors",
+                "Church administrators",
+                "Seminary students",
+                "Christian educators"
+            ],
+            "possible_digital_products": [
+                "Ebook",
+                "Online Course",
+                "Workshop",
+                "AI Ministry Prompt Library"
+            ],
+            "demand_score": "90/100",
+            "competition": "Moderate",
+            "opportunity": "HIGH",
+            "recommendation": "Proceed to research stage."
+        }
 
         return report
 
