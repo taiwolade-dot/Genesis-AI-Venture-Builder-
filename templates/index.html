@@ -2,79 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Genesis AI Venture Builder</title>
+<title>Genesis AI Venture Builder</title>
 
-    <style>
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6fb;
-            margin: 0;
-            color: #1a2a6c;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    color: #1a2a6c;
+}
 
-        header {
-            background: #1a2a6c;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+header {
+    background: #1a2a6c;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
+textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
 
-        textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
+button {
+    background: #d4af37;
+    color: #1a2a6c;
+    border: none;
+    padding: 14px 25px;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
 
-        button {
-            background: #d4af37;
-            color: #1a2a6c;
-            border: none;
-            padding: 14px 25px;
-            margin-top: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+h2, h3 {
+    color: #1a2a6c;
+}
 
-        button:hover {
-            opacity: 0.85;
-        }
+li {
+    margin-bottom: 8px;
+}
 
-        h2 {
-            color: #1a2a6c;
-        }
-
-        pre {
-            white-space: pre-wrap;
-            line-height: 1.6;
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -99,16 +87,16 @@
 
 <form method="POST">
 
-<textarea
+<textarea 
 name="idea"
 rows="5"
 placeholder="Enter your business or ministry idea..."></textarea>
 
+<br>
 
 <button type="submit">
 Generate Venture Strategy
 </button>
-
 
 </form>
 
@@ -122,17 +110,69 @@ Generate Venture Strategy
 
 <h2>🤖 Genesis AI CEO Analysis</h2>
 
-<pre>{{ report }}</pre>
+<h3>💡 Venture Idea</h3>
+<p>{{ report.idea }}</p>
+
+
+<h3>🎯 Mission</h3>
+<p>{{ report.mission }}</p>
+
+
+<h3>🚀 Recommended Niche</h3>
+<p>{{ report.niche.recommended_niche }}</p>
+
+
+<h3>Problem Identified</h3>
+<p>{{ report.niche.problem_identified }}</p>
+
+
+<h3>👥 Target Audience</h3>
+
+<ul>
+{% for item in report.niche.target_audience %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+<h3>📦 Digital Product Opportunities</h3>
+
+<ul>
+{% for item in report.niche.possible_digital_products %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+<h3>📚 Research Intelligence</h3>
+
+<ul>
+{% for item in report.research.sources_to_investigate %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+<h3>🔍 Research Questions</h3>
+
+<ul>
+{% for item in report.research.research_questions %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+<h3>✅ Recommendation</h3>
+
+<p>{{ report.niche.recommendation }}</p>
+
 
 </div>
-
 
 {% endif %}
 
 
-
 </div>
-
 
 </body>
 
