@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Genesis AI Venture Builder</title>
 
@@ -11,56 +12,64 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6fb;
-    margin: 0;
-    color: #1a2a6c;
+    background:#f4f6fb;
+    margin:0;
+    color:#1a2a6c;
 }
 
 header {
-    background: #1a2a6c;
-    color: white;
-    padding: 30px;
-    text-align: center;
+    background:#1a2a6c;
+    color:white;
+    padding:35px;
+    text-align:center;
 }
 
 .container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width:1100px;
+    margin:auto;
+    padding:25px;
 }
 
 .card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-textarea {
-    width: 100%;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.metric {
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+    background:#eef1ff;
+}
+
+.metric h2 {
+    font-size:32px;
 }
 
 button {
-    background: #d4af37;
-    color: #1a2a6c;
-    border: none;
-    padding: 14px 25px;
-    margin-top: 15px;
-    border-radius: 8px;
-    font-weight: bold;
+    background:#d4af37;
+    color:#1a2a6c;
+    border:none;
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-h2, h3 {
-    color: #1a2a6c;
+textarea {
+    width:100%;
+    padding:15px;
+    border-radius:10px;
 }
 
-li {
-    margin-bottom: 8px;
-}
 
 </style>
 
@@ -69,13 +78,15 @@ li {
 
 <body>
 
+
 <header>
 
 <h1>Genesis AI Venture Builder</h1>
 
-<p>AI Venture Studio — Transform Ideas into Opportunities</p>
+<p>Build. Research. Learn. Teach. Create. Deploy.</p>
 
 </header>
+
 
 
 <div class="container">
@@ -83,18 +94,20 @@ li {
 
 <div class="card">
 
-<h2>🚀 Create Venture Analysis</h2>
+<h2>🚀 Venture Idea Generator</h2>
+
 
 <form method="POST">
 
 <textarea 
 name="idea"
 rows="5"
-placeholder="Enter your business or ministry idea..."></textarea>
+placeholder="Describe your business or ministry idea">
+</textarea>
 
-<br>
+<br><br>
 
-<button type="submit">
+<button>
 Generate Venture Strategy
 </button>
 
@@ -106,73 +119,181 @@ Generate Venture Strategy
 
 {% if report %}
 
+
 <div class="card">
 
-<h2>🤖 Genesis AI CEO Analysis</h2>
-
-<h3>💡 Venture Idea</h3>
-<p>{{ report.idea }}</p>
+<h2>🤖 AI Agent Pipeline</h2>
 
 
-<h3>🎯 Mission</h3>
-<p>{{ report.mission }}</p>
+<div class="grid">
+
+<div class="metric">
+<h3>CEO Agent</h3>
+<p>Completed ✓</p>
+</div>
 
 
-<h3>🚀 Recommended Niche</h3>
-<p>{{ report.niche.recommended_niche }}</p>
+<div class="metric">
+<h3>Niche Agent</h3>
+<p>Completed ✓</p>
+</div>
 
 
-<h3>Problem Identified</h3>
-<p>{{ report.niche.problem_identified }}</p>
-
-
-<h3>👥 Target Audience</h3>
-
-<ul>
-{% for item in report.niche.target_audience %}
-<li>{{ item }}</li>
-{% endfor %}
-</ul>
-
-
-<h3>📦 Digital Product Opportunities</h3>
-
-<ul>
-{% for item in report.niche.possible_digital_products %}
-<li>{{ item }}</li>
-{% endfor %}
-</ul>
-
-
-<h3>📚 Research Intelligence</h3>
-
-<ul>
-{% for item in report.research.sources_to_investigate %}
-<li>{{ item }}</li>
-{% endfor %}
-</ul>
-
-
-<h3>🔍 Research Questions</h3>
-
-<ul>
-{% for item in report.research.research_questions %}
-<li>{{ item }}</li>
-{% endfor %}
-</ul>
-
-
-<h3>✅ Recommendation</h3>
-
-<p>{{ report.niche.recommendation }}</p>
+<div class="metric">
+<h3>Research Agent</h3>
+<p>Completed ✓</p>
+</div>
 
 
 </div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📊 Opportunity Intelligence</h2>
+
+
+<div class="grid">
+
+<div class="metric">
+
+<h3>Demand Score</h3>
+
+<h2>
+{{ report.niche.demand_score }}
+</h2>
+
+</div>
+
+
+<div class="metric">
+
+<h3>Competition</h3>
+
+<h2>
+{{ report.niche.competition }}
+</h2>
+
+</div>
+
+
+<div class="metric">
+
+<h3>Opportunity</h3>
+
+<h2>
+{{ report.niche.opportunity }}
+</h2>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🎯 Recommended Niche</h2>
+
+<p>
+{{ report.niche.recommended_niche }}
+</p>
+
+
+<h3>Problem Identified</h3>
+
+<p>
+{{ report.niche.problem_identified }}
+</p>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👥 Target Audience</h2>
+
+<ul>
+
+{% for item in report.niche.target_audience %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📦 Digital Products</h2>
+
+<ul>
+
+{% for item in report.niche.possible_digital_products %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📚 Research Intelligence</h2>
+
+
+<h3>Sources</h3>
+
+<ul>
+
+{% for item in report.research.sources_to_investigate %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+
+<h3>Research Questions</h3>
+
+<ul>
+
+{% for item in report.research.research_questions %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+
+</div>
+
 
 {% endif %}
 
 
 </div>
+
 
 </body>
 
