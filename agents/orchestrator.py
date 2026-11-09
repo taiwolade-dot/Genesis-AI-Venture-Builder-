@@ -18,6 +18,7 @@ class Orchestrator(BaseAgent):
         self.niche_agent = NicheAgent()
         self.research_agent = ResearchAgent()
 
+
     def create_venture_report(self, idea):
 
         print("\nGenesis AI CEO Agent")
@@ -35,8 +36,11 @@ class Orchestrator(BaseAgent):
             "agent": self.name,
             "mission": self.mission,
             "idea": idea,
-            "niche_analysis": niche_report,
-            "research_analysis": research_report,
+
+            "niche": niche_report,
+
+            "research": research_report,
+
             "next_stage": "Product strategy development"
         }
 

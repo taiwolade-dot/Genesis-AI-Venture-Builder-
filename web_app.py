@@ -16,15 +16,10 @@ def home():
         idea = request.form["idea"]
 
         result = ceo.create_venture_report(idea)
+        print(report)
 
-        report = {
-            "idea": result["idea"],
-            "agent": result["agent"],
-            "mission": result["mission"],
-            "niche": result["niche_analysis"],
-            "research": result["research_analysis"],
-            "next_stage": result["next_stage"]
-        }
+
+        report = result
 
     return render_template(
         "index.html",
