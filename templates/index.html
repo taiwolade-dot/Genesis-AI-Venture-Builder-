@@ -107,9 +107,27 @@ placeholder="Describe your business or ministry idea">
 
 <br><br>
 
-<button>
+<button id="generateBtn" onclick="showLoading()">
 Generate Venture Strategy
 </button>
+
+<div id="loading" style="display:none; margin-top:20px;">
+
+<div class="card">
+
+<h3>🤖 Genesis AI Workflow Running</h3>
+
+<p>⏳ CEO Agent: Coordinating venture analysis...</p>
+
+<p>🔍 Niche Agent: Discovering opportunities...</p>
+
+<p>📚 Research Agent: Building intelligence...</p>
+
+<p>🚀 Preparing venture strategy...</p>
+
+</div>
+
+</div>
 
 </form>
 
@@ -293,6 +311,19 @@ Generate Venture Strategy
 
 
 </div>
+
+
+<script>
+
+function showLoading(){
+
+document.getElementById("generateBtn").disabled = true;
+
+document.getElementById("loading").style.display = "block";
+
+}
+
+</script>
 
 
 </body>
