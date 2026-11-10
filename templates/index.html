@@ -309,6 +309,29 @@ Generate Venture Strategy
 </div>
 
 
+
+<div class="card">
+
+<h2>🤝 Creator Partnership Intelligence</h2>
+
+<h3>Creator Targets</h3>
+
+<ul>
+{% for item in report.creator_partnership.creator_targets %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+<h3>Partnership Models</h3>
+
+<ul>
+{% for item in report.creator_partnership.partnership_models %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+</div>
+
 {% endif %}
 
 
@@ -359,6 +382,10 @@ document.getElementById("loading").innerHTML =
 "<p>🔍 Niche Agent: Completed</p>" +
 
 "<p>📚 Research Agent: Completed</p>" +
+
+"<p>🤝 Creator Partnership Agent: Completed</p>" +
+
+"<p>🤝 Creator Partnership Agent: Completed</p>" +
 
 "</div>";
 
@@ -472,6 +499,68 @@ item => `<li>${item}</li>`
 
 </div>
 
+
+
+<div class="card">
+
+<h2>🤝 Creator Partnership Intelligence</h2>
+
+<h3>Creator Targets</h3>
+
+<ul>
+
+${(report.creator_partnership?.creator_targets || []).map(
+item => `<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+<h3>Partnership Models</h3>
+
+<ul>
+
+${(report.creator_partnership?.partnership_models || []).map(
+item => `<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+<h3>Personalization Strategy</h3>
+
+<ul>
+
+${(report.creator_partnership?.personalization_strategy || []).map(
+item => `<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+<h3>Whop Strategy</h3>
+
+<p>
+Platform:
+${report.creator_partnership?.whop_strategy?.platform || 'Not available'}
+</p>
+
+<p>
+Commission:
+${report.creator_partnership?.whop_strategy?.recommended_commission || 'Not available'}
+</p>
+
+
+<ul>
+
+${(report.creator_partnership?.whop_strategy?.product_format || []).map(
+item => `<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+</div>
 
 `;
 
