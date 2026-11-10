@@ -6,3 +6,5 @@ __pycache__/
 .env
 outputs/
 *.log
+*.v001_backup
+*.v002_backup
