@@ -5,6 +5,8 @@ app = Flask(__name__)
 
 ceo = Orchestrator()
 
+latest_report = None
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -18,6 +20,9 @@ def home():
         result = ceo.create_venture_report(idea)
 
         print(result)
+
+        global latest_report
+        latest_report = result
 
         report = result
 
@@ -45,6 +50,15 @@ def analyze():
         },
         "report": result
     })
+
+
+@app.route("/report")
+def report():
+
+    return render_template(
+        "venture_report.html",
+        report=latest_report
+    )
 
 
 if __name__ == "__main__":
