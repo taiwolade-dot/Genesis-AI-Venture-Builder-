@@ -9,14 +9,22 @@ class ResearchSourceDatabase:
         title,
         category,
         insight,
-        year=None
+        year=None,
+        author=None,
+        source_type=None,
+        url=None,
+        relevance_score=0
     ):
 
         self.sources.append({
             "title": title,
             "category": category,
             "year": year,
-            "insight": insight
+            "author": author,
+            "source_type": source_type,
+            "url": url,
+            "insight": insight,
+            "relevance_score": relevance_score
         })
 
 
