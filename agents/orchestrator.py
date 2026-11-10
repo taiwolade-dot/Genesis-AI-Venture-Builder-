@@ -3,6 +3,7 @@ from agents.niche_agent import NicheAgent
 from agents.research_agent import ResearchAgent
 from agents.creator_agent import CreatorPartnershipAgent
 from agents.product_agent import ProductIntelligenceAgent
+from agents.report_agent import ReportIntelligenceAgent
 
 
 class Orchestrator(BaseAgent):
@@ -21,6 +22,7 @@ class Orchestrator(BaseAgent):
         self.niche_agent = NicheAgent()
         self.research_agent = ResearchAgent()
         self.product_agent = ProductIntelligenceAgent()
+        self.report_agent = ReportIntelligenceAgent()
         self.creator_agent = CreatorPartnershipAgent()
 
 
@@ -49,6 +51,17 @@ class Orchestrator(BaseAgent):
             product_report
         )
 
+        venture_data = {
+            "niche": niche_report,
+            "research": research_report,
+            "product": product_report,
+            "creator_partnership": creator_report
+        }
+
+        venture_report = self.report_agent.analyze(
+            venture_data
+        )
+
 
         final_report = {
 
@@ -66,7 +79,9 @@ class Orchestrator(BaseAgent):
 
             "creator_partnership": creator_report,
 
-            "next_stage": "Creator partnership development and launch planning"
+              "venture_report": venture_report,
+
+            "next_stage": "Validation, execution, and venture launch planning"
 
         }
 
