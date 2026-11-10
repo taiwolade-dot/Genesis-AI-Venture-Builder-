@@ -1,4 +1,5 @@
 from agents.base_agent import BaseAgent
+from agents.research.research_engine import ResearchEngine
 
 
 class ResearchAgent(BaseAgent):
@@ -12,6 +13,8 @@ class ResearchAgent(BaseAgent):
             name="Research Intelligence Agent",
             mission="Analyze markets, identify problems, opportunities, and research directions."
         )
+
+        self.engine = ResearchEngine()
 
     def analyze(self, niche):
 
@@ -37,5 +40,9 @@ class ResearchAgent(BaseAgent):
             "research_status": "Ready for source collection.",
             "confidence_score": 0.0
         }
+
+        report["research_sources"] = self.engine.generate_research(niche)
+
+        report["research_status"] = "Research database generated."
 
         return report
