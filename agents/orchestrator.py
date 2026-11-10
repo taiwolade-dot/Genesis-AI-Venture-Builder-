@@ -2,6 +2,7 @@ from agents.base_agent import BaseAgent
 from agents.niche_agent import NicheAgent
 from agents.research_agent import ResearchAgent
 from agents.creator_agent import CreatorPartnershipAgent
+from agents.product_agent import ProductIntelligenceAgent
 
 
 class Orchestrator(BaseAgent):
@@ -19,6 +20,7 @@ class Orchestrator(BaseAgent):
 
         self.niche_agent = NicheAgent()
         self.research_agent = ResearchAgent()
+        self.product_agent = ProductIntelligenceAgent()
         self.creator_agent = CreatorPartnershipAgent()
 
 
@@ -38,9 +40,13 @@ class Orchestrator(BaseAgent):
             research_topic
         )
 
+        product_report = self.product_agent.analyze(
+            research_report
+        )
+
 
         creator_report = self.creator_agent.analyze(
-            research_topic
+            product_report
         )
 
 
@@ -56,9 +62,11 @@ class Orchestrator(BaseAgent):
 
             "research": research_report,
 
+              "product": product_report,
+
             "creator_partnership": creator_report,
 
-            "next_stage": "Product strategy development and creator distribution"
+            "next_stage": "Creator partnership development and launch planning"
 
         }
 
